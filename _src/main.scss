@@ -1,0 +1,354 @@
+//colors
+$color_bunker_approx: #21303f; // text left
+$color_tapa_approx: #7a7371; 
+$color_cararra_approx: #f0eceb; // text right
+$color_vermilion_approx: #e74c3c; // bg right
+$color_school_bus_yellow_approx: #ffdd00;
+
+//fonts
+$font_2: 'Ubuntu', serif;
+$font_3: 'Montserrat', sans-serif;
+$font_4: Arial;
+$font_5: sans-serif;
+
+//@extend-elements
+//original selectors
+//html, body
+%extend_1 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+//original selectors
+//#wrapper #right #box, #wrapper #right #circle
+%extend_2 {
+  width: 288px;
+  height: 288px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+html {
+  @extend %extend_1;
+}
+body {
+  @extend %extend_1;
+  font-family: $font_2, $font_4, $font_5;
+  color: $color_bunker_approx;
+  background: $color_cararra_approx;
+}
+#wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .side {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+  }
+  #left {
+    z-index: 2;
+    h1 {
+      font-family: $font_3;
+      font-weight: 700;
+      font-size: 62px;
+      line-height: 88px;
+      padding: 50px 0 0 72px;
+      position: relative;
+      z-index: 2;
+    }
+    #yellow {
+      background: $color_school_bus_yellow_approx;
+      height: 144px;
+      width: 272px;
+      position: absolute;
+      top: 74px;
+      left: 144px;
+    }
+    #links {
+      position: absolute;
+      width: 100%;
+      bottom: 56px;
+      left: 72px;
+      font-size: 0;
+      li {
+        list-style: none;
+        display: inline-block;
+        width: 128px;
+        margin: 0 24px 0 0;
+        position: relative;
+        height: 34px;
+        a {
+          font-family: $font_2;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 20px;
+          display: block;
+          color: inherit;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+        p {
+          position: absolute;
+          top: 0;
+          z-index: 2;
+        }
+        .bar {
+          position: absolute;
+          bottom: 0;
+          height: 4px;
+          width: 100%;
+          background: $color_bunker_approx;
+          transition: all 0.32s cubic-bezier(.48, 0, .16, 1);
+        }
+        &:hover .bar {
+          height: 24px;
+          background: $color_vermilion_approx;
+        }
+      }
+    }
+  }
+  #right {
+    background: $color_vermilion_approx;
+    #text {
+      position: absolute;
+      height: 44px;
+      top: 0;
+      left: 72px;
+      bottom: 0;
+      margin: auto;
+      z-index: 2;
+    }
+    h2, #emoji {
+      font-family: $font_2;
+      font-weight: 600;
+      color: $color_cararra_approx;
+      font-size: 28px;
+      line-height: 24px;
+      padding-bottom: 20px;
+    }
+    h3 {
+      font-family: $font_2;
+      font-weight: 400;
+      color: $color_cararra_approx;
+      font-size: 18px;
+      line-height: 20px;
+      margin-top: 3px;
+      text-align: center;
+    }
+  }
+}
+@media screen and(max-width: 1336px) {
+  #wrapper #right #box {
+    width: 224px;
+    height: 224px;
+    .default {
+      display: none;
+    }
+    .small {
+      display: block;
+    }
+  }
+}
+@media screen and(max-width: 1216px) {
+  #wrapper {
+    #left {
+      h1 {
+        padding: 34px 0 0 56px;
+      }
+      #yellow {
+        top: 58px;
+        left: 128px;
+      }
+      #links {
+        bottom: 40px;
+        left: 56px;
+      }
+    }
+    #right #text {
+      left: 56px;
+    }
+  }
+}
+@media screen and(max-width: 1168px) {
+  #wrapper {
+    .side {
+      float: none;
+      width: 100%;
+    }
+    #right {
+      position: absolute;
+      top: 0;
+      background: none;
+      #text {
+        right: 336px;
+        left: auto;
+      }
+
+      #emoji {
+        color: $color_bunker_approx;        
+      }
+      h2 {
+        color: $color_bunker_approx;
+      }
+      h3 {
+        color: $color_tapa_approx;
+      }
+    }
+    #left #yellow {
+      display: none;
+    }
+  }
+}
+@media screen and(max-width: 944px) {
+  #wrapper #left {
+    height: 100%;
+    z-index: 2;
+    h1 {
+      font-size: 54px;
+      line-height: 66px;
+      padding: 50px 0 0 72px;
+    }
+    #links {
+      left: 72px;
+      bottom: 56px;
+      li {
+        width: 128px;
+        &:hover .bar {
+          height: 4px;
+          background: $color_bunker_approx;
+        }
+      }
+    }
+  }
+}
+@media screen and(max-width: 768px) {
+  #wrapper {
+    #left {
+      h1 {
+        font-size: 54px;
+        line-height: 66px;
+        padding: 34px 0 0 56px;
+      }
+      #links {
+        left: 56px;
+        bottom: 40px;
+      }
+    }
+    #right {
+      #text {
+        right: 272px;
+      }
+    }
+  }
+}
+@media screen and(max-width: 580px) {
+  #wrapper #right {
+    #text {
+      right: auto;
+      left: 56px;
+    }
+  }
+}
+@media screen and(max-width: 544px) {
+  #wrapper {
+    #left {
+      h1 {
+        padding: 18px 0 0 32px;
+      }
+      #links {
+        left: 32px;
+        bottom: 32px;
+        li {
+          width: 88px;
+        }
+      }
+    }
+    #right #text {
+      left: 32px;
+    }
+  }
+}
+@media screen and(max-width: 374px) {
+  #wrapper {
+    #left {
+      h1 {
+        padding: 10px 0 0 24px;
+      }
+      #links {
+        left: 24px;
+        bottom: 20px;
+      }
+    }
+    #right {
+      #text {
+        left: 24px;
+      }
+    }
+  }
+}
+@media screen and(max-width: 359px) {
+  #wrapper {
+    #left #links li {
+      width: 72px;
+    }
+  }
+}
+@media screen and(max-device-width: 414px) and(max-device-height: 736px) and(orientation: landscape) {
+  body {
+    background: $color_vermilion_approx;
+  }
+  body::after {
+    content: "I encourage you to rotate your phone like a normal fucking human being.";
+    color: $color_cararra_approx;
+    position: absolute;
+    font-size: 24px;
+    line-height: 32px;
+    height: 64px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    padding: 0 56px;
+  }
+  #wrapper {
+    display: none;
+  }
+}
+
+
+
+
+#basic-modal-content {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000;}
+
+/* Container */
+#simplemodal-container {height:360px; width:600px; color:#bbb; background-color:#333; border:4px solid #444; padding:12px;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg {background:url(../img/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#simplemodal-container h3 {color:#84b8d9;}

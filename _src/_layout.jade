@@ -1,0 +1,25 @@
+doctype
+html
+  head
+    meta(charset='UTF-8')
+    title Boris Seremes
+    meta(name='description', content='Product Designer at Facebook. Previously at Google.')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+
+    link(href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css')
+    link(rel="stylesheet" href="/main.css")
+
+  body
+    != yield
+
+    script
+      include /js/cool-ascii-faces.js
+    script
+      include /js/konami.js
+    script
+      include /js/jquery.js
+    script
+      include /js/jquery.simplemodal.js
+    script
+      include /js/main.js
